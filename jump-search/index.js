@@ -1,5 +1,4 @@
 
-
 /**
  * Returns the index of the searched element.
  * 
