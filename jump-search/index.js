@@ -1,6 +1,7 @@
 
 
 /**
+ * Returns the index of the searched element.
  * 
  * @param {string} sortOrder - 'asc' or 'desc'
  * @param {number} blockSize 
@@ -15,7 +16,7 @@ export function jumpSearch(sortOrder, blockSize, sortedArray, searchedValue) {
     }
 
     let stepStartIndex = 0;
-    while (sortedArray[stepStartIndex] < searchedValue) {
+    while (compare(sortOrder, sortedArray[stepStartIndex], searchedValue)) {
         stepStartIndex += blockSize;
 
         if (stepStartIndex > length) {
@@ -25,7 +26,7 @@ export function jumpSearch(sortOrder, blockSize, sortedArray, searchedValue) {
 
     let lastBlocKStart = stepStartIndex - blockSize;
 
-    while (sortedArray[lastBlocKStart] < searchedValue) {
+    while (compare(sortOrder, sortedArray[stepStartIndex], searchedValue)) {
         lastBlocKStart++;
     }
 
@@ -34,4 +35,19 @@ export function jumpSearch(sortOrder, blockSize, sortedArray, searchedValue) {
     }
 
     return -1;
+}
+
+/**
+ * Compares the passed valued by the given sort order.
+ * 
+ * @param {string} sortOrder  - 'asc' or 'desc'
+ * @param {number} itemOne 
+ * @param {number} itemTwo 
+ */
+function compare(sortOrder, itemOne, itemTwo) {
+    if (sortOrder === 'asc') {
+        return itemOne < itemTwo;
+    }
+
+    return itemOne > itemTwo;
 }
