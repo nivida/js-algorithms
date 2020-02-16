@@ -14,5 +14,8 @@ TC: ``O(√n)``
 ## Example
 
 ``` javascript
+import {jumpSearch} from './index.js';
 
+const searchArray = [0, 1, 5, 10, 20, 25, 30, 40, 42, 50];
+console.log(jumpSearch('asc', 5, sortedArray, 30);
 ```

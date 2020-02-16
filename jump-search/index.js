@@ -2,12 +2,12 @@
 
 /**
  * 
- * @param {number} blockSize 
  * @param {string} sortOrder - 'asc' or 'desc'
+ * @param {number} blockSize 
  * @param {Array<number>} sortedArray 
  * @param {number} searchedValue 
  */
-export function jumpSearch(blockSize, sortOrder, sortedArray, searchedValue) {
+export function jumpSearch(sortOrder, blockSize, sortedArray, searchedValue) {
     const length = (sortedArray.length - 1);
 
     if (blockSize > sortedArray.length) {
