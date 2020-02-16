@@ -81,7 +81,7 @@ export function interpolationSearchDynamic(sortOrder, sortedArray, searchedValue
 function getHighAndLow(sortOrder, sortedArray) {
     if (sortOrder === 'desc') {
         return {
-            low: sortedArray.length - 1;
+            low: sortedArray.length - 1,
             high: 0
         };
     }
