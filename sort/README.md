@@ -1,3 +1,3 @@
 ## Sort
 
-- [Sort](./selection)
+- [Selection](./selection)

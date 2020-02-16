@@ -8,4 +8,4 @@
 - [Exponential](./search/exponential)
 
 ### Sort
-- [Sort](./sort/selection)
+- [Selection](./sort/selection)
