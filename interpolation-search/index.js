@@ -50,7 +50,10 @@ export function interpolationSearchDynamic(sortOrder, sortedArray, searchedValue
     const {high, low} = getHighAndLow(sortOrder, sortedArray);
     let position;
 
-    while (low <= high && key >= array[low] && x <= array[high]) { 
+    // low <= high : As long the low value doesn't exceed the array length
+    // searchedValue >= array[low]: As long as the searched value is greater or equals than the lowest value
+    // searchedValue <= array[high]: As long as the searched value is smaller or equals than the highest value
+    while (low <= high && searchedValue >= array[low] && searchedValue <= array[high]) { 
         position = getPosition(sortOrder, sortedArray, searchedValue, high, low);
 
         if (sortedArray[position] === searchedValue) {
