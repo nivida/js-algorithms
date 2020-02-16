@@ -18,7 +18,7 @@ export function jumpSearch(sortOrder, blockSize, sortedArray, searchedValue) {
     while (sortedArray[stepStartIndex] < searchedValue) {
         stepStartIndex += blockSize;
 
-        if (i > length) {
+        if (stepStartIndex > length) {
             return -1;
         }
     }
@@ -27,13 +27,9 @@ export function jumpSearch(sortOrder, blockSize, sortedArray, searchedValue) {
 
     while (sortedArray[lastBlocKStart] < searchedValue) {
         lastBlocKStart++;
-
-        if (lastBlocKStart === length || lastBlocKStart === stepStartIndex) {
-            return -1;
-        }
     }
 
-    if (sortedArray[lastBlocKStart] === searchedValue) {
+    if (sortedArray[lastBlocKStart - 1] === searchedValue || sortedArray[lastBlocKStart] === searchedValue) {
         return lastBlocKStart;
     }
 
