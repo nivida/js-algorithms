@@ -14,21 +14,21 @@ export function jumpSearch(blockSize, sortOrder, sortedArray, searchedValue) {
         return -1;
     }
 
-    let i = 0;
-    while (sortedArray[i] < searchedValue) {
-        i += blockSize;
+    let stepStartIndex = 0;
+    while (sortedArray[stepStartIndex] < searchedValue) {
+        stepStartIndex += blockSize;
 
         if (i > length) {
             return -1;
         }
     }
 
-    let lastBlocKStart = i - blockSize;
+    let lastBlocKStart = stepStartIndex - blockSize;
 
     while (sortedArray[lastBlocKStart] < searchedValue) {
         lastBlocKStart++;
 
-        if (lastBlocKStart === length || lastBlocKStart === i) {
+        if (lastBlocKStart === length || lastBlocKStart === stepStartIndex) {
             return -1;
         }
     }
