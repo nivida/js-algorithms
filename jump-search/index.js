@@ -3,29 +3,34 @@
 /**
  * 
  * @param {number} blockSize 
- * @param {string} sortOrder 
+ * @param {string} sortOrder - 'asc' or 'desc'
  * @param {Array<number>} sortedArray 
  * @param {number} searchedValue 
  */
 export function jumpSearch(blockSize, sortOrder, sortedArray, searchedValue) {
+    const length = (sortedArray.length - 1);
+
     if (blockSize > sortedArray.length) {
         return -1;
     }
 
-    let lastBlocKStart;
-    for (let i = blockSize; i <= (sortedArray.length - 1); i = i + blockSize) {
-        if (sortedArray[i] < searchedValue) {
-            return;
-        }
+    let i = 0;
+    while (sortedArray[i] < searchedValue) {
+        i += blockSize;
 
-        if (sortedArray[i] > searchedValue) {
-            lastBlocKStart = i - blockSize;
-            break;
+        if (i > length) {
+            return -1;
         }
     }
 
+    let lastBlocKStart = i - blockSize;
+
     while (sortedArray[lastBlocKStart] < searchedValue) {
         lastBlocKStart++;
+
+        if (lastBlocKStart === length || lastBlocKStart === i) {
+            return -1;
+        }
     }
 
     if (sortedArray[lastBlocKStart] === searchedValue) {
