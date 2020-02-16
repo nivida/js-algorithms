@@ -1,6 +1,6 @@
 
 /**
- * Interpolation search implemented with recursion (dynamic programming would use less operations)
+ * Interpolation search implemented with recursion 
  * 
  * @param {string} sortOrder 
  * @param {Array<number>} sortedArray 
