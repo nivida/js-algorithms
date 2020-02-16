@@ -5,6 +5,8 @@
  * @param {string} sortOrder 
  * @param {Array<number>} sortedArray 
  * @param {number} searchedValue 
+ * 
+ * @returns {number}
  */
 export function interpolationSearchRecursive(sortOrder, sortedArray, searchedValue) {
     if (!sortedArray.length) {
