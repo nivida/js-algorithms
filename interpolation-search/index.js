@@ -6,43 +6,99 @@
  * @param {Array<number>} sortedArray 
  * @param {number} searchedValue 
  */
-export function interpolationSearch(sortOrder, sortedArray, searchedValue) {
+export function interpolationSearchRecursive(sortOrder, sortedArray, searchedValue) {
     if (!sortedArray.length) {
         return -1;
     }
 
-    const position = getPosition(sortOrder, sortedArray, searchedValue);
+    const {high, low} = getHighAndLow(sortOrder, sortedArray);
+    const position = getPosition(sortedArray, searchedValue, high, low);
 
     if (sortedArray[position] === searchedValue) {
         return position;
     }
 
     if (sortedArray[position] < searchedValue) {
-        return interpolationSearch(sortOrder, sortedArray.slice(0, sortedArray[position]), searchedValue);
+        return interpolationSearchRecursive(
+            sortOrder,
+            sortedArray.slice(0, position + 1),
+            searchedValue
+        );
     }
 
-    if (sortedArray[position] > searchedValue) {
-        return interpolationSearch(sortOrder, sortedArray.slice(sortedArray[position]), searchedValue);
+    return interpolationSearchRecursive(
+        sortOrder,
+        sortedArray.slice(position - 1),
+        searchedValue
+    );
+}
+
+/**
+ * Interpolation search implemented with dynamic programming 
+ * 
+ * @param {string} sortOrder - 'asc' or 'desc' 
+ * @param {Array<number>} sortedArray 
+ * @param {number} searchedValue 
+ * 
+ * @returns {number}
+ */
+export function interpolationSearchDynamic(sortOrder, sortedArray, searchedValue) {
+    if (!sortedArray.length) {
+        return -1;
     }
+
+    const {high, low} = getHighAndLow(sortOrder, sortedArray);
+    let position;
+
+    while (low <= high && key >= array[low] && x <= array[high]) { 
+        position = getPosition(sortOrder, sortedArray, searchedValue, high, low);
+
+        if (sortedArray[position] === searchedValue) {
+            return position;
+        }
+
+        if (sortedArray[position] < searchedValue) {
+            low = position + 1; 
+        }
+
+        if (sortedArray[position] > searchedValue) {
+            high = position - 1;
+        }
+    }
+}
+
+/**
+ * Returns the correct high and low values depending on the sort order
+ * 
+ * @param {string} sortOrder - 'asc' or 'desc' 
+ * @param {Array<number>} sortedArray 
+ * 
+ * @returns {Object<low, high>}
+ */
+function getHighAndLow(sortOrder, sortedArray) {
+    if (sortOrder === 'desc') {
+        return {
+            low: sortedArray.length - 1;
+            high: 0
+        };
+    }
+
+    return {
+        low: 0,
+        high: sortedArray.length - 1
+    };
 }
 
 /**
  * Returns the prope position with the interpolation formula
  * 
- * @param {string} sortOrder 
  * @param {Array<number>} sortedArray 
  * @param {number} searchedValue
  * 
  * @returns {nummber} 
  */
-function getPosition(sortOrder, sortedArray, searchedValue) {
-    let low = 0;
-    let high = sortedArray.length - 1;
-
-    if (sortOrder === 'desc') {
-        low = sortedArray.length - 1;
-        high = 0;
-    }
-
-    return low + Math.floor(((searchedValue  - sortedArray[low]) * (high - low) / (sortedArray[high] - sortedArray[low])));
+function getPosition(sortedArray, searchedValue, high, low) {
+    return low + Math.floor(
+        ((searchedValue  - sortedArray[low]) * (high - low) / (sortedArray[high] - sortedArray[low]))
+    );
 }
