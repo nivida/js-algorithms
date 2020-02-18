@@ -14,5 +14,5 @@ TC: ``O(log n)``
 import {binarySearch} from './index.js';
 
 const searchArray = [0, 1, 5, 10, 20, 25, 30, 40, 42, 50];
-console.log(binarySearch('asc', searchArray, 0, searchArray.length, 30);
+console.log(binarySearch('asc', searchArray, 0, searchArray.length, 30));
 ```

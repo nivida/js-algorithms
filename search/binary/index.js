@@ -10,20 +10,20 @@
  * 
  * @returns {number} - The index of the element
  */
-export function binarySearch(sortOrder, sortedArray, start, end, searchedValue) {
+function binarySearch(sortOrder, sortedArray, start, end, searchedValue) {
     if (end >= 1) {
-        const middle = getMiddle(start, end)
+        const middle = getMiddle(start, end);
 
         if (sortedArray[middle] === searchedValue) {
             return middle; 
         }
 
         if (searchLeftHalf(sortOrder, sortedArray[middle], searchedValue)) {
-            return binarySearch(sortedArray, start, middle, searchedValue);
+            return binarySearch(sortOrder, sortedArray, start, middle, searchedValue);
         }
 
         if (searchRightHalf(sortOrder, sortedArray[middle], searchedValue)) {
-            return binarySearch(sortedArray, middle, end, searchedValue);
+            return binarySearch(sortOrder, sortedArray, middle, end, searchedValue);
         }
     }
 }
@@ -39,10 +39,10 @@ export function binarySearch(sortOrder, sortedArray, start, end, searchedValue) 
  */
 function searchLeftHalf(sortOrder, element, searchedValue) {
     if (sortOrder === 'asc') {
-        return element < searchedValue;
+        return searchedValue < element;
     }
 
-    return element > searchedValue;
+    return searchedValue > element;
 }
 
 /**
@@ -56,10 +56,10 @@ function searchLeftHalf(sortOrder, element, searchedValue) {
  */
 function searchRightHalf(sortOrder, element, searchedValue) {
     if (sortOrder === 'asc') {
-        return element > searchedValue;
+        return searchedValue > element;
     }
 
-    return element < searchedValue;
+    return searchedValue < element;
 }
 
 /**
@@ -71,5 +71,8 @@ function searchRightHalf(sortOrder, element, searchedValue) {
  * @returns {number} 
  */
 function getMiddle(start, end) {
-    return Math.floor(start + (end - 1) / 2);
+    return Math.floor((start + (end - 1)) / 2);
 }
+
+const searchArray = [0, 1, 5, 10, 20, 25, 30, 40, 42, 50];
+console.log(binarySearch('asc', searchArray, 0, searchArray.length, 30));
