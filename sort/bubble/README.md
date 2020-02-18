@@ -18,7 +18,7 @@ The bubble sort algorithm is a simple sorting algorith that works with repeatedl
 ### Second Pass:
 ( **1** **4** 2 5 8 ) –> ( **1** **4** 2 5 8 )
 
-( 1 **4** **2** 5 8 ) –> ( 1 **2** **4** 5 8 ), Swap for with two because: 4 > 2
+( 1 **4** **2** 5 8 ) –> ( 1 **2** **4** 5 8 ), Swap four with two because: 4 > 2
 
 ( 1 2 **4** **5** 8 ) –> ( 1 2 **4** **5** 8 )
 
@@ -41,5 +41,19 @@ Now the bubble sort algo knows that anything is sorted as expected.
 ## Example
 
 ``` javascript
+import {bubbleSort} from './index.js';
 
+console.log(
+  bubbleSort(
+    'asc',
+    [
+      5,
+      1,
+      4,
+      2,
+      8
+    ]
+  )
+);
+// > [1, 2, 4, 5, 8]
 ```
