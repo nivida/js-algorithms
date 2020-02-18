@@ -1,5 +1,6 @@
 import {binarySearch} from '../binary-search/index.js';
 
+
 /**
  * Returns the index of the search element from the given array.
  * 
@@ -9,13 +10,13 @@ import {binarySearch} from '../binary-search/index.js';
  * 
  * @returns {number}
  */
-export function exponentialSearch(sortOrder, sortedArray, searchValue) {
+function exponentialSearch(sortOrder, sortedArray, searchValue) {
     if (sortedArray[0] === searchValue) {
         return sortedArray[0];
     }
 
-    let i = 0;
-    const length = sortedArray.length;
+    let i = 1;
+    const length = sortedArray.length - 1;
 
     // Iterate over the whole array in a exponential meaning until the value is bigger than the value we are looking for
     while (i < length && sortedArray[i] <= searchValue) {
@@ -27,7 +28,7 @@ export function exponentialSearch(sortOrder, sortedArray, searchValue) {
     return binarySearch(
         sortOrder,
         sortedArray,
-        i / 2,
+        Math.floor(i / 2),
         Math.min(i, length),
         searchValue
     );
