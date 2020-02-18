@@ -9,10 +9,10 @@
  */
 export function selectionSort(sortOrder, array) {
     const length = array.length;
-    let lowestItem = 0;
+    let lowestItem;
 
     // Iterate over each item of the array
-    for (let i = 0; i <= length; i++) {
+    for (let i = 0; i < length; i++) {
         lowestItem = i;
 
         // Iterate over each sub array item and detect the lowest value
@@ -24,9 +24,7 @@ export function selectionSort(sortOrder, array) {
         }
 
         // Move lowest element to the first position of the array
-        if (array[lowestItem]) {
-            swap(lowestItem, i, array);
-        }
+        swap(lowestItem, i, array);
     }
 
     return array;
