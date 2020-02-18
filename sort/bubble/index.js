@@ -2,24 +2,26 @@
 /**
  * Sorts the given array with bubble sort.
  *  
- * @param {string} sorOrder - 'asc' or 'desc' 
+ * @param {string} sortOrder - 'asc' or 'desc' 
  * @param {Array<number>} array 
  * 
  * @returns {Array<number}
  */
-export function bubbleSort(sorOrder, array) {
+function bubbleSort(sortOrder, array) {
     let subLength;
-    const length = array.length - 1;
 
     // Iterate over each item of the array and swap them correctly
-    for (let i = 0; i < length; i++) {
-        subLength = (length - i - 1);
-        for (let j = 0; j < subLength; j++ ) { 
+    let k = 0;
+    for (let i = 0; i < array.length; i++) {
+        subLength = array.length - i - 1;
+        for (let j = 0; j < subLength; j++) { 
             if (compare(sortOrder, array[j], array[j + 1])) {
-                swap(array[j], array[j + 1]);
+                swap(j, j + 1, array);
             }   
         }
     }
+
+    return array;
 }
 
 /**
@@ -50,8 +52,10 @@ function swap(one, two, array) {
  */
 function compare(sortOrder, itemOne, itemTwo) {
     if (sortOrder === 'asc') {
-        return itemOne < itemTwo;
+        return itemOne > itemTwo;
     }
 
-    return itemOne > itemTwo;
+    return itemOne < itemTwo;
 }
+
+console.log(bubbleSort('asc', [5, 1, 4, 2, 8]));
