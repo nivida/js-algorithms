@@ -10,7 +10,7 @@
  * 
  * @returns {number} - The index of the element
  */
-function binarySearch(sortOrder, sortedArray, start, end, searchedValue) {
+export function binarySearch(sortOrder, sortedArray, start, end, searchedValue) {
     if (end >= 1) {
         const middle = getMiddle(start, end);
 
@@ -73,6 +73,3 @@ function searchRightHalf(sortOrder, element, searchedValue) {
 function getMiddle(start, end) {
     return Math.floor((start + (end - 1)) / 2);
 }
-
-const searchArray = [0, 1, 5, 10, 20, 25, 30, 40, 42, 50];
-console.log(binarySearch('asc', searchArray, 0, searchArray.length, 30));
