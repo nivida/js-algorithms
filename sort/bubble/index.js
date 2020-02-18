@@ -7,7 +7,7 @@
  * 
  * @returns {Array<number}
  */
-function bubbleSort(sortOrder, array) {
+export function bubbleSort(sortOrder, array) {
     let subLength;
 
     // Iterate over each item of the array and swap them correctly
@@ -56,5 +56,3 @@ function compare(sortOrder, itemOne, itemTwo) {
 
     return itemOne < itemTwo;
 }
-
-console.log(bubbleSort('asc', [5, 1, 4, 2, 8]));
