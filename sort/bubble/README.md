@@ -7,15 +7,21 @@ The bubble sort algorithm is a simple sorting algorith that works with repeatedl
 ## Algo Example:
 
 ### First Pass:
-( **5** **1** 4 2 8 ) –> ( **1** **5** 4 2 8 ), Swap since 5 > 1.⋅⋅
-( 1 **5** **4** 2 8 ) –>  ( 1 **4** **5** 2 8 ), Swap since 5 > 4⋅⋅
-( 1 4 **5** **2** 8 ) –>  ( 1 4 **2** **5** 8 ), Swap since 5 > 2⋅⋅
+( **5** **1** 4 2 8 ) –> ( **1** **5** 4 2 8 ), Swap since 5 > 1.
+
+( 1 **5** **4** 2 8 ) –>  ( 1 **4** **5** 2 8 ), Swap since 5 > 4
+
+( 1 4 **5** **2** 8 ) –>  ( 1 4 **2** **5** 8 ), Swap since 5 > 2
+
 ( 1 4 2 **5** **8** ) –> ( 1 4 2 **5** **8** ), Do nothing they are already in order.
 
 ### Second Pass:
-( **1** **4** 2 5 8 ) –> ( **1** **4** 2 5 8 )⋅⋅
-( 1 **4** **2** 5 8 ) –> ( 1 **2** **4** 5 8 ), Swap for with two because: 4 > 2⋅⋅
-( 1 2 **4** **5** 8 ) –> ( 1 2 **4** **5** 8 )⋅⋅
+( **1** **4** 2 5 8 ) –> ( **1** **4** 2 5 8 )
+
+( 1 **4** **2** 5 8 ) –> ( 1 **2** **4** 5 8 ), Swap for with two because: 4 > 2
+
+( 1 2 **4** **5** 8 ) –> ( 1 2 **4** **5** 8 )
+
 ( 1 2 4 **5** **8** ) –>  ( 1 2 4 **5** **8** )
 
 The array would now already be sorted. But the bubble sort algorithm can't know if this is actually the case at this point. 
@@ -23,8 +29,11 @@ The only way the bubble sort algorithm can detect if the array is completly sort
 
 ### Third Pass:
 ( 1 2 4 5 8 ) –> ( 1 2 4 5 8 )
+
 ( 1 2 4 5 8 ) –> ( 1 2 4 5 8 )
+
 ( 1 2 4 5 8 ) –> ( 1 2 4 5 8 )
+
 ( 1 2 4 5 8 ) –> ( 1 2 4 5 8 )
 
 Now the bubble sort algo knows that anything is sorted as expected.
