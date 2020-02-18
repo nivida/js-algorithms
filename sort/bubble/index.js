@@ -11,7 +11,6 @@ function bubbleSort(sortOrder, array) {
     let subLength;
 
     // Iterate over each item of the array and swap them correctly
-    let k = 0;
     for (let i = 0; i < array.length; i++) {
         subLength = array.length - i - 1;
         for (let j = 0; j < subLength; j++) { 
