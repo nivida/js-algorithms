@@ -10,11 +10,12 @@
 export function bubbleSort(sortOrder, array) {
     let subLength;
     let swapped = false;
+    const length = array.length;
 
     // Iterate over each item of the array and swap them correctly
-    for (let i = 0; i < array.length; i++) {
+    for (let i = 0; i < length; i++) {
         swapped = false;
-        subLength = array.length - i - 1;
+        subLength = length - i - 1;
         for (let j = 0; j < subLength; j++) {
             if (compare(sortOrder, array[j], array[j + 1])) {
                 swap(j, j + 1, array);

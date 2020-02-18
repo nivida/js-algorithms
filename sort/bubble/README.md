@@ -38,7 +38,7 @@ The only way the bubble sort algorithm can detect if the array is completly sort
 
 Now the bubble sort algo knows that anything is sorted as expected.
 
-Note: For each iteration does get the scope of sorting smaller because the last element of the array is already sorted and can get ignored.
+Note: For each iteration is the scope smaller because the last (second last.. and so on) element of the array is already sorted and can get ignored.
 
 ## Example
 

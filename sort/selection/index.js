@@ -8,7 +8,7 @@
  * @returns {Array}
  */
 export function selectionSort(sortOrder, array) {
-    const length = array.length - 1;
+    const length = array.length;
     let lowestItem = 0;
 
     // Iterate over each item of the array
@@ -24,7 +24,9 @@ export function selectionSort(sortOrder, array) {
         }
 
         // Move lowest element to the first position of the array
-        array = swap(lowestItem, i);
+        if (array[lowestItem]) {
+            swap(lowestItem, i, array);
+        }
     }
 
     return array;
