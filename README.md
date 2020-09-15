@@ -1,5 +1,5 @@
 
-WIP: Just implement a few.. more should come time by time
+WIP: Just implemented a few.. more should come time by time..
 
 ## Algorithms: 
 
