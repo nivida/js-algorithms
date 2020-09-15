@@ -23,7 +23,7 @@ export function jumpSearch(sortOrder, blockSize, sortedArray, searchedValue) {
         }
     }
 
-    let lastBlocKStart = stepStartIndex - blockSize;
+    let lastBlocKStart = stepStartIndex;
 
     while (compare(sortOrder, sortedArray[stepStartIndex], searchedValue)) {
         lastBlocKStart++;
