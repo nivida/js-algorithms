@@ -1,4 +1,6 @@
 
+WIP: Just implement a few.. more should come time by time
+
 ## Algorithms: 
 
 ### Search
